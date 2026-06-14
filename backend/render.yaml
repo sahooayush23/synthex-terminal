@@ -1,0 +1,14 @@
+# Render free-tier blueprint. On Render: New → Blueprint → point at this repo.
+# Free web services sleep after inactivity; first request after idle wakes it (~30s).
+services:
+  - type: web
+    name: synthex-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      # Set this to your deployed frontend URL (Vercel) to allow browser requests.
+      - key: FRONTEND_ORIGIN
+        sync: false

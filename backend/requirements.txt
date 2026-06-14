@@ -1,0 +1,8 @@
+# Synthex Terminal backend — every dependency is free & open source.
+fastapi>=0.115
+uvicorn[standard]>=0.30
+yfinance>=0.2.61
+python-dotenv>=1.0
+lxml>=5.0          # required by yfinance for earnings-date scraping
+requests>=2.31     # FX (Frankfurter) + crypto (CoinGecko) HTTP calls
+certifi>=2024.0    # CA bundle for the Finnhub trade WebSocket (live candles)
